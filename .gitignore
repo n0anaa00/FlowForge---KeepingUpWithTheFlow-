@@ -1,0 +1,8 @@
+__pycache__/
+.env
+dist/
+.vscode/
+.idea/
+*.pyc
+coverage/
+postgres_data/
