@@ -1,21 +1,40 @@
-import { Typography } from "@mui/material";
+import {
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 
-import AppLayout from "./components/layout/AppLayout";
+import DashboardPage from "./pages/Dashboard/DashboardPage";
+import LoginPage from "./pages/Login/LoginPage";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   return (
-    <AppLayout>
-      <Typography variant="h4">
-        Welcome back, User
-      </Typography>
+    <Routes>
+      <Route
+        path="/"
+        element={<Navigate to="/dashboard" replace />}
+      />
 
-      <Typography
-        color="text.secondary"
-        sx={{ mt: 1 }}
-      >
-        Ready to enter the flow?
-      </Typography>
-    </AppLayout>
+      <Route
+        path="/login"
+        element={<LoginPage />}
+      />
+
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="*"
+        element={<Navigate to="/dashboard" replace />}
+      />
+    </Routes>
   );
 }
 
