@@ -1,48 +1,49 @@
-import {
-  useEffect,
-  useState,
-} from "react";
-
 import FocusCard from "./FocusCard";
 
-const START_TIME = 25 * 60;
+import { useFocus } from "../../context/FocusContext";
 
 function FocusTimer() {
-  const [timeLeft, setTimeLeft] =
-    useState(START_TIME);
 
-  const [running, setRunning] =
-    useState(false);
+    const {
 
-  useEffect(() => {
-    if (!running) return;
+        running,
 
-    const timer = setInterval(() => {
-      setTimeLeft(previous =>
-        previous > 0 ? previous - 1 : 0
-      );
-    }, 1000);
+        timeLeft,
 
-    return () => clearInterval(timer);
-  }, [running]);
+        start,
 
-  const minutes = Math.floor(timeLeft / 60);
+        pause,
 
-  const seconds = timeLeft % 60;
+        stop
 
-  return (
-    <FocusCard
-      minutes={minutes}
-      seconds={seconds}
-      running={running}
-      onStart={() => setRunning(true)}
-      onPause={() => setRunning(previous => !previous)}
-      onStop={() => {
-        setRunning(false);
-        setTimeLeft(START_TIME);
-      }}
-    />
-  );
+    } = useFocus();
+
+    const minutes =
+        Math.floor(timeLeft / 60);
+
+    const seconds =
+        timeLeft % 60;
+
+    return (
+
+        <FocusCard
+
+            minutes={minutes}
+
+            seconds={seconds}
+
+            running={running}
+
+            onStart={start}
+
+            onPause={pause}
+
+            onStop={stop}
+
+        />
+
+    );
+
 }
 
 export default FocusTimer;

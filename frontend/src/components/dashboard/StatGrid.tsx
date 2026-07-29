@@ -5,9 +5,23 @@ import TimerIcon from "@mui/icons-material/Timer";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import StatCard from "./StatCard";
+import { useFocus } from "../../context/FocusContext";
 
 function StatsGrid() {
 
+
+
+
+    const {
+
+    todayMinutes,
+
+    sessionsToday,
+
+    xpEarned
+
+} = useFocus();
+    
     return (
 
         <Grid
@@ -59,6 +73,27 @@ function StatsGrid() {
                     icon={<TrendingDownIcon color="success" />}
                 />
             </Grid>
+
+
+             <Grid size={{ xs: 12, md: 6, lg: 2.4 }}>
+                <StatCard
+                    title="Minutes Today"
+                    value={`${todayMinutes} min`}
+                    icon={<TrendingDownIcon color="success" />}
+                />
+            </Grid>
+
+
+             <Grid size={{ xs: 12, md: 6, lg: 2.4 }}>
+                <StatCard
+                    title="Sessions Today"
+                    value={sessionsToday}
+                    subtitle={`+${xpEarned} XP`}
+                    icon={<TrendingDownIcon color="success" />}
+                />
+            </Grid>
+
+            
 
         </Grid>
 

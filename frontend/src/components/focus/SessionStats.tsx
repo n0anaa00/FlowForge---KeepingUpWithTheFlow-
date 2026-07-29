@@ -1,58 +1,90 @@
 import {
-  Card,
-  CardContent,
-  Grid,
-  Typography,
+
+    Card,
+    CardContent,
+    Grid,
+    Typography
+
 } from "@mui/material";
 
+import { useFocus } from "../../context/FocusContext";
+
 function SessionStats() {
-  return (
-    <Card>
-      <CardContent>
 
-        <Grid container spacing={3}>
+    const {
 
-          <Grid size={{ xs: 4 }}>
-            <Typography
-              color="text.secondary"
-            >
-              Focus Time
-            </Typography>
+        todayMinutes,
 
-            <Typography variant="h5">
-              2h 41m
-            </Typography>
-          </Grid>
+        sessionsToday,
 
-          <Grid size={{ xs: 4 }}>
-            <Typography
-              color="text.secondary"
-            >
-              Sessions
-            </Typography>
+        xpEarned
 
-            <Typography variant="h5">
-              4
-            </Typography>
-          </Grid>
+    } = useFocus();
 
-          <Grid size={{ xs: 4 }}>
-            <Typography
-              color="text.secondary"
-            >
-              XP
-            </Typography>
+    return (
 
-            <Typography variant="h5">
-              +240
-            </Typography>
-          </Grid>
+        <Card>
 
-        </Grid>
+            <CardContent>
 
-      </CardContent>
-    </Card>
-  );
+                <Grid container spacing={3}>
+
+                    <Grid size={{ xs: 4 }}>
+
+                        <Typography color="text.secondary">
+
+                            Focus Time
+
+                        </Typography>
+
+                        <Typography variant="h5">
+
+                            {todayMinutes} min
+
+                        </Typography>
+
+                    </Grid>
+
+                    <Grid size={{ xs: 4 }}>
+
+                        <Typography color="text.secondary">
+
+                            Sessions
+
+                        </Typography>
+
+                        <Typography variant="h5">
+
+                            {sessionsToday}
+
+                        </Typography>
+
+                    </Grid>
+
+                    <Grid size={{ xs: 4 }}>
+
+                        <Typography color="text.secondary">
+
+                            XP
+
+                        </Typography>
+
+                        <Typography variant="h5">
+
+                            {xpEarned}
+
+                        </Typography>
+
+                    </Grid>
+
+                </Grid>
+
+            </CardContent>
+
+        </Card>
+
+    );
+
 }
 
 export default SessionStats;
