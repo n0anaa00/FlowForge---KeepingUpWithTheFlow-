@@ -4,9 +4,11 @@ import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
 
+
 import App from "./App";
 import { AuthProvider } from "./context/AuthContext";
 import theme from "./theme/theme";
+import { GamificationProvider } from "./context/GamificationContext";
 
 ReactDOM.createRoot(
   document.getElementById("root")!,
@@ -17,7 +19,11 @@ ReactDOM.createRoot(
         <CssBaseline />
 
         <AuthProvider>
-          <App />
+          <FocusProvider>
+          <GamificationProvider>
+            <App />
+          </GamificationProvider>
+          </FocusProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
