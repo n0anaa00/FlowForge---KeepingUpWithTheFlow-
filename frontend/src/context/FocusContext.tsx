@@ -108,15 +108,10 @@ export function FocusProvider({ children }: Props) {
             value={{
 
                 running,
-
                 timeLeft,
-
                 todayMinutes,
-
                 sessionsToday,
-
                 xpEarned,
-
                 start,
 
                 pause,

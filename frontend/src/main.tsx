@@ -21,7 +21,9 @@ ReactDOM.createRoot(
         <AuthProvider>
           <FocusProvider>
           <GamificationProvider>
-            <App />
+            <TaskProvider>
+              <App />
+            </TaskProvider>
           </GamificationProvider>
           </FocusProvider>
         </AuthProvider>
