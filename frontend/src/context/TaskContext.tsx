@@ -26,6 +26,8 @@ const TaskContext =
     undefined,
   );
 
+
+
 interface Props {
   children: ReactNode;
 }
@@ -69,7 +71,13 @@ export function useTasks() {
     throw new Error(
       "useTasks must be used inside TaskProvider",
     );
+
+
+    
   }
 
+
+
+  
   return context;
 }
