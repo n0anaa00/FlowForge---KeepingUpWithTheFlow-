@@ -81,3 +81,36 @@ export function useTasks() {
   
   return context;
 }
+
+
+
+
+/* const { addXP } =
+useGamification();
+
+const { addEvent } =
+useAnalytics();
+
+if(
+    task.id===id &&
+    status==="done" &&
+    task.status!=="done"
+){
+
+    addXP(100);
+
+    addEvent({
+
+        id: Date.now(),
+
+        type:"task_completed",
+
+        timestamp:new Date(),
+
+        title:task.title,
+
+        xp:100
+
+    });
+
+} */

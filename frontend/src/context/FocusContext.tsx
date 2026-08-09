@@ -142,3 +142,28 @@ export function useFocus() {
     return context;
 
 }
+
+
+
+/* const { addXP } =
+useGamification();
+
+const { addEvent } =
+useAnalytics();
+
+
+addXP(50);
+
+addEvent({
+
+    id:Date.now(),
+
+    type:"focus_completed",
+
+    timestamp:new Date(),
+
+    title:"Completed Focus Session",
+
+    xp:50
+
+}); */
