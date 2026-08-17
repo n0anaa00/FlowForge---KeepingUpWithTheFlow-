@@ -3,10 +3,11 @@ version: "3.9"
 services:
 
   postgres:
-    image: postgres:16
-    container_name: flowforge-db
+    image: postgres:17
 
-    restart: always
+    container_name: flowforge-postgres
+
+    restart: unless-stopped
 
     environment:
       POSTGRES_USER: flowforge
@@ -18,6 +19,7 @@ services:
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
 
 volumes:
   postgres_data:
