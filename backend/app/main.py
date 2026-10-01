@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from app.api.routes.health import router as health_router
 from app.api.routes.users import router as users_router
 from app.api.routes.tasks import router as tasks_router
-
+from app.api.routes.focus import router as focus_router
 from app.core.config import settings
 
 
@@ -24,12 +24,17 @@ app.include_router(
 )
 
 
-
 app.include_router(
     tasks_router,
     prefix="/api",
 )
 
+
+app.include_router(
+    focus_router,
+    prefix="/api",
+    prefix="/api",
+)
 
 @app.get("/")
 async def root():

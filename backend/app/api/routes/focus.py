@@ -26,3 +26,4 @@ def create_focus_session(
         user_id=session_data.user_id,
         duration_minutes=session_data.duration_minutes,
     )
+
