@@ -1,6 +1,6 @@
 from sqlalchemy import ForeignKey, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
+from sqlalchemy import  Date
 from app.database.connection import Base
 
 
@@ -39,3 +39,8 @@ class GamificationProfile(Base):
         "User",
         back_populates="gamification_profile",
     )
+
+    last_focus_date = Column(
+    Date,
+    nullable=True,
+)
